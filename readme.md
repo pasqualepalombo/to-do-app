@@ -1,7 +1,7 @@
 # Todo App
 Una semplice applicazione Todo sviluppata con **Angular**, **Quarkus** e **PostgreSQL**.
 
-![Preview](readmeimg.jpg)
+![Preview](readmeimg.png)
 
 ## Stack Tecnologico
 - **Frontend**: Angular 18+ con PrimeNG
