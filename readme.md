@@ -137,5 +137,5 @@ ng build --configuration production
 ```
 
 ## Autore
-Pasquale Palombo
+Pasquale Palombo </br>
 Sviluppato per scopi educativi come introduzione a Quarkus, Angular, PrimeNG e PostgreSQL.
