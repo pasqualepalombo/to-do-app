@@ -1,0 +1,4 @@
+com/example/service/TodoService.class
+com/example/resource/TodoResource.class
+com/example/entity/Todo.class
+com/example/repository/TodoRepository.class

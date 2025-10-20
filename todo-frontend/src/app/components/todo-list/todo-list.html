@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>I miei Todo</h1>
+
+  <app-todo-form (todoCreated)="onTodoCreated($event)"></app-todo-form>
+
+  <div class="filter-buttons">
+    <button
+      [class.active]="filter === 'all'"
+      (click)="setFilter('all')"
+      class="btn-filter"
+    >
+      Tutti
+    </button>
+    <button
+      [class.active]="filter === 'completati'"
+      (click)="setFilter('completati')"
+      class="btn-filter"
+    >
+      Completati
+    </button>
+    <button
+      [class.active]="filter === 'non-completati'"
+      (click)="setFilter('non-completati')"
+      class="btn-filter"
+    >
+      Non Completati
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Caricamento...
+  </div>
+
+  <div *ngIf="!loading && filteredTodos.length === 0" class="empty">
+    {{ filter === 'all' ? 'Nessun todo. Creane uno!' : 'Nessun todo in questa categoria' }}
+  </div>
+
+  <div *ngIf="!loading && filteredTodos.length > 0" class="todo-list">
+    <div *ngFor="let todo of filteredTodos" class="todo-item" [class.completato]="todo.completato">
+      <div class="todo-content">
+        <input
+          type="checkbox"
+          [checked]="todo.completato"
+          (change)="toggleCompletato(todo)"
+          class="checkbox"
+        />
+        <div class="todo-text">
+          <h3>{{ todo.titolo }}</h3>
+          <p>{{ todo.descrizione }}</p>
+          <small>{{ todo.dataCreazione | date:'dd/MM/yyyy HH:mm' }}</small>
+        </div>
+      </div>
+      <button (click)="deleteTodo(todo.id)" class="btn-delete">Elimina</button>
+    </div>
+    
+    <app-chart [todos]="todos"></app-chart>
+</div>
